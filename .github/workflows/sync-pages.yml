@@ -42,7 +42,7 @@ jobs:
           # Sync files, excluding exceptions
           rsync -av --delete \
             --exclude '.git' \
-            --exclude '.github/workflows/sync-copies.yml' \
+            --exclude '.github' \
             --exclude '.env' \
             --exclude 'target-repo' \
             --exclude 'CNAME' \
