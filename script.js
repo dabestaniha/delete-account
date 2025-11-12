@@ -1,4 +1,9 @@
-const BASEURL = 'https://api.mahakiha.ir';
+function makeApiBaseUrl() {
+    const domain = window.location.hostname.split('.').slice(-2).join('.');
+    return `https://api.${domain}`;
+}
+const BASEURL = makeApiBaseUrl();
+
 $(function () {
     let checkStepActive = function () {
         return !this.el.hasClass('hidden');
