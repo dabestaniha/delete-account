@@ -33,9 +33,8 @@ jobs:
 
       - name: Clone target repository
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          echo "${GH_TOKEN: -2}"
           git clone --depth=1 \
             https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository_owner }}/${{ matrix.repo }} \
             target-repo
@@ -50,7 +49,7 @@ jobs:
 
       - name: Commit & push changes
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           cd target-repo
           if [ -n "$(git status --porcelain)" ]; then
